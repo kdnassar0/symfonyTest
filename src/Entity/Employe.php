@@ -89,9 +89,14 @@ class Employe
         return $this;
     }
 
-    public function getDateEmbouche(): ?\DateTimeInterface
+
+    //on es obligé de changer le format et le tybe de l'objet parce que c'est un dateTime 
+    //dateTime un objet et on ne peut pas le conventir en string quand on fait echo si pour ca on change la format 
+
+    //ou on peux faire ca en twig parce que il a des filters deja prets
+    public function getDateEmbouche(): ?string
     {
-        return $this->dateEmbouche;
+        return $this->dateEmbouche->format("d-m-y");
     }
 
     public function setDateEmbouche(?\DateTimeInterface $dateEmbouche): self
@@ -123,5 +128,17 @@ class Employe
         $this->entreprise = $entreprise;
 
         return $this;
+    }
+
+    public function getAge(){
+        $now = new \DateTime() ;
+        $interval= date_diff($this->dateNaissance,$now) ; 
+        return $interval->format('%Y');
+
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 }

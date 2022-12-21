@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detailes d'une entreprises{% endblock %}
+
+
+
+{% block body %}
+<h1> {{ entreprise }}  </h1>
+
+SIRET : {{ entreprise.siret }} <br>
+
+Adress  : {{ entreprise.fullAdress }} <br>
+
+date Creation : {{ entreprise.dateCreation | date('d-m-y')  }}
+
+<h1>liste employes</h1>
+{# parce que dans l'entreprise on a une collection des employes et grace a cette tableau on est accee de trouver l'integralite des employes dans l'entreprise  #}
+
+
+ {# le nom de mon objet.le nom de mon collection #}
+{% for employe in entreprise.employes  %}
+
+ {{ employe }} <br>
+    
+{% endfor %}
+
+{% endblock %}

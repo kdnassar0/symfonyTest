@@ -4,8 +4,12 @@
 
 {% block body %}
 
-<h1> {{ employe.ville }}</h1>
+<h1>ville : {{ employe.ville }}</h1>
     
-   {{ employe.entreprise.raisonSocial }}
+  Entreprise : {{ employe.entreprise }} <br>
+  Date d'embouche : {{  employe.dateEmbouche  }}  <br>
+  Date Naissance : {{ employe.dateNaissance  | date('d-m-y') }} <br>
+
+  Age  : {{ employe.age }}
 
 {% endblock %}

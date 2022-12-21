@@ -49,6 +49,11 @@ class Entreprise
      */
     private $employes;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $siret;
+
     public function __construct()
     {
         $this->employes = new ArrayCollection();
@@ -106,6 +111,10 @@ class Entreprise
 
         return $this;
     }
+    public function getFullAdress(){
+       $fullAdresse = $this->getAdresse() ."  ".  $this->getVille() ." ".$this->codePostal ;
+       return $fullAdresse ;
+    }
 
     public function getVille(): ?string
     {
@@ -145,6 +154,23 @@ class Entreprise
                 $employe->setEntreprise(null);
             }
         }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->raisonSocial;
+    }
+
+    public function getSiret(): ?string
+    {
+        return $this->siret;
+    }
+
+    public function setSiret(string $siret): self
+    {
+        $this->siret = $siret;
 
         return $this;
     }

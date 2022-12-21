@@ -24,4 +24,18 @@ class EntrepriseController extends AbstractController
            'entreprises'=>$entreprises
         ]);
     }
+
+        /**
+     * @Route("/entreprise/{id}", name="show_employe")
+     */                                                         
+                                                            //on ne peux pas difinir une methode qui a la meme route deux fois
+    public function show(Entreprise $entreprise):Response   //fonctionne va recuperer l'entreprise qui a comme id=5 par example
+    {
+        return $this->render('entreprise/show.html.twig', [
+            'entreprise' =>$entreprise
+          ]);
+      
+
+    }
+
 }
