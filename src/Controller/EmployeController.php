@@ -25,19 +25,7 @@ class EmployeController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/employe/{id}", name="show_employe")
-     */
-
-    public function show(Employe $employe):Response
-    {
-        return $this->render('employe/show.html.twig', [
-            'employe' =>$employe
-          ]);
-      
-
-    }
-
+    
 
       /**
      * @Route("/employe/add", name="add_employe")
@@ -47,7 +35,8 @@ class EmployeController extends AbstractController
     public function add(ManagerRegistry $doctrine,Employe $employe =null,Request $request)
     {
 
-        
+        //si l'employer ne existe pas .. je vais le creer 
+        //si non le get data va recuperer le formulaire pour pouvoir modifier
         if(!$employe){
             $employe = new Employe() ;
          }
@@ -70,4 +59,44 @@ class EmployeController extends AbstractController
         
     );
 }
+
+     /**
+     * @Route("/employe/delete/{id}", name="delete_employe")
+     */
+
+     public function delete(ManagerRegistry $doctrine,Employe $employe)
+     {
+        $entityManager=$doctrine->getManager();
+        $entityManager->remove($employe);
+        $entityManager->flush(); 
+
+        return $this->redirectToRoute('app_employe');
+      
+
+
+     }
+
+
+
+
+
+
+
+
+      /**
+     * @Route("/employe/{id}", name="show_employe")
+     */
+
+    public function show(Employe $employe):Response
+    {
+        return $this->render('employe/show.html.twig', [
+            'employe' =>$employe
+          ]);
+      
+
+    }
+
+
+
+
 }
