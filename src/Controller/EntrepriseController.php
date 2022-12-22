@@ -83,7 +83,35 @@ class EntrepriseController extends AbstractController
 
 
     }
-     /**
+
+      
+         /**
+     * @Route("/entreprise/delete/{id}", name="delete_entreprise")
+     */
+
+    public function delete(ManagerRegistry $doctrine,Entreprise $entreprise)
+    {
+       $entityManager=$doctrine->getManager();
+       $entityManager->remove($entreprise);
+       $entityManager->flush(); 
+
+       return $this->redirectToRoute('app_entreprise');
+     
+
+
+    }
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    /**
      * @Route("/entreprise/{id}", name="show_entreprise")
      */
     //on ne peux pas difinir une methode qui a la  meme route deux fois
