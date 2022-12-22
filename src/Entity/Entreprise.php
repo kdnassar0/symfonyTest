@@ -160,7 +160,9 @@ class Entreprise
 
     public function __toString()
     {
-        return $this->raisonSocial;
+        return $this->raisonSocial ." ".$this->dateCreation->format('d-m-y') ." ".$this->adresse ." ".$this->codePostal ." ".$this->ville ." ".$this->siret ;
+        
+         
     }
 
     public function getSiret(): ?string

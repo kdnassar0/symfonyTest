@@ -6,8 +6,11 @@
   <h1>liste de l'entreprise</h1>
 
 
-  <a href="{{  path('add_entreprise') }}">Ajouter une entreprise</a> <br>
+  <a href="{{  path ('add_entreprise') }}">Ajouter une entreprise</a> <br>
 {% for entreprise in entreprises %}
-    {{ entreprise.raisonSocial ~ '('~ entreprise.ville ~')' ~ '('~ entreprise.codePostal ~')'  }} <br>
+  <a href=" {{ path ('show_entreprise',{'id':entreprise.id}) }}"> {{ entreprise.raisonSocial }} </a>
+    {{  '('~ entreprise.ville ~')' ~ '('~ entreprise.codePostal ~')'  }} 
+    <a href="{{ path ('edit_entreprise',{'id': entreprise.id}) }}">Edit</a><br>
+
 {% endfor %}
 {% endblock %}

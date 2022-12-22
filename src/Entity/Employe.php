@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EmployeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Entreprise;
 
 /**
  * @ORM\Entity(repositoryClass=EmployeRepository::class)
@@ -79,7 +80,7 @@ class Employe
 
     public function getDateNaissance(): ?\DateTimeInterface
     {
-        return $this->dateNaissance;
+        return $this->dateNaissance ; 
     }
 
     public function setDateNaissance(\DateTimeInterface $dateNaissance): self
@@ -94,9 +95,9 @@ class Employe
     //dateTime un objet et on ne peut pas le conventir en string quand on fait echo si pour ca on change la format 
 
     //ou on peux faire ca en twig parce que il a des filters deja prets
-    public function getDateEmbouche(): ?string
+    public function getDateEmbouche(): ?\DateTimeInterface
     {
-        return $this->dateEmbouche->format("d-m-y");
+        return $this->dateEmbouche ;
     }
 
     public function setDateEmbouche(?\DateTimeInterface $dateEmbouche): self
@@ -139,6 +140,6 @@ class Employe
 
     public function __toString()
     {
-        return $this->nom;
+        return $this->nom ." ".$this->prenom ." ".$this->dateNaissance->format('d-m-y')  ." ".$this->dateEmbouche->format('d-m-y') ." ".$this->ville ." ".$this->entreprise  ;
     }
 }
