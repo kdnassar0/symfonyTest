@@ -4,6 +4,9 @@
 
 {% block body %}
   <h1>liste de l'entreprise</h1>
+
+
+  <a href="{{  path('add_entreprise') }}">Ajouter une entreprise</a> <br>
 {% for entreprise in entreprises %}
     {{ entreprise.raisonSocial ~ '('~ entreprise.ville ~')' ~ '('~ entreprise.codePostal ~')'  }} <br>
 {% endfor %}

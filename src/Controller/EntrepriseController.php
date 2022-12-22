@@ -39,7 +39,7 @@ class EntrepriseController extends AbstractController
     {
     //managerRegistry : pour pouvoir utiliser doctrine en avoir un lien en bdd     
      //  on a besoin un objet entreprise parce on  av ajouter une entreprise 
-     //un objet 
+     //un objet request
 
      $form = $this->createForm(EntrepriseTybeType ::class,$entreprise ) ; //va faire un formulaire qui va reposer sur l'entite entreprise 
      $form->handleRequest($request); //quand il y a un action il va pouvoir aller chercher dans la bdd et faire la modification dedan
