@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Employe;
 use App\Form\EmployeTybeType;
 use Doctrine\Persistence\ManagerRegistry;
+use PhpParser\Node\Expr\Empty_;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,10 +41,16 @@ class EmployeController extends AbstractController
 
       /**
      * @Route("/employe/add", name="add_employe")
+     * @Route("/employe/edit/{id}",name="edit_employe")
      */  
 
     public function add(ManagerRegistry $doctrine,Employe $employe =null,Request $request)
     {
+
+        
+        if(!$employe){
+            $employe = new Employe() ;
+         }
   
 
      $form = $this->createForm(EmployeTybeType ::class,$employe ) ; 

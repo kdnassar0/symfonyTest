@@ -9,8 +9,8 @@
  <a href="{{  path ('add_employe') }}">Ajouter un employe</a> <br>
 
  {% for employe in employes %}
-   <a href="{{ path ('show_employe',{'id':employe.id})  }}"> {{ employe.nom }} <br></a>
-    
+   <a href="{{ path ('show_employe',{'id':employe.id})  }}"> {{ employe.nom }} 
+    <a href="{{ path ('edit_employe' ,{'id':employe.id}) }}">edit</a><br>
  {% endfor %}
 
 {% endblock %}
