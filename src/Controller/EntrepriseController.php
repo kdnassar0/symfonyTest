@@ -28,6 +28,8 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
+  
+
 
 
 
@@ -81,10 +83,7 @@ class EntrepriseController extends AbstractController
 
 
     }
-
-    
-
-    /**
+     /**
      * @Route("/entreprise/{id}", name="show_entreprise")
      */
     //on ne peux pas difinir une methode qui a la  meme route deux fois
@@ -94,5 +93,8 @@ class EntrepriseController extends AbstractController
             'entreprise' => $entreprise
         ]);
     }
+    
+
+ 
 
 }

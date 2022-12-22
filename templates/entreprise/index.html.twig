@@ -11,6 +11,7 @@
   <a href=" {{ path ('show_entreprise',{'id':entreprise.id}) }}"> {{ entreprise.raisonSocial }} </a>
     {{  '('~ entreprise.ville ~')' ~ '('~ entreprise.codePostal ~')'  }} 
     <a href="{{ path ('edit_entreprise',{'id': entreprise.id}) }}">Edit</a><br>
+  
 
 {% endfor %}
 {% endblock %}
